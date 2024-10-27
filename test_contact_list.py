@@ -7,7 +7,6 @@ class TestContactList(unittest.TestCase):
     def setUp(self):
         self.mock_db = MagicMock()
         self.contact_list = ContactList(db=self.mock_db)
-        self.contact_list = ContactList()
 
     def test_add_contact(self):
         contact = self.contact_list.add_contact("Alice", "123456")

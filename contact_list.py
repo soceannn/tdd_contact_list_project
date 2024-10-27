@@ -3,9 +3,6 @@ class ContactList:
         self.contacts = []
         self.current_id = 1
         self.db = db
-    def __init__(self):
-        self.contacts = []
-        self.current_id = 1
 
     def add_contact(self, name, phone):
         if not name or not phone:
