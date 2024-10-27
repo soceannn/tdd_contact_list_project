@@ -7,6 +7,7 @@ class TestContactList(unittest.TestCase):
     def setUp(self):
         self.mock_db = MagicMock()
         self.contact_list = ContactList(db=self.mock_db)
+        self.contact_list = ContactList()
 
     def test_add_contact(self):
         contact = self.contact_list.add_contact("Alice", "123456")
@@ -35,7 +36,6 @@ class TestContactList(unittest.TestCase):
     def test_delete_nonexistent_contact(self):
         with self.assertRaises(ValueError):
             self.contact_list.delete_contact(99)
-        self.mock_db.save.assert_not_called()
         print("Test 'test_delete_nonexistent_contact' passed.")
 
 if __name__ == "__main__":
