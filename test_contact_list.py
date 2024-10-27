@@ -10,7 +10,8 @@ class TestContactList(unittest.TestCase):
 
     def test_add_contact(self):
         contact = self.contact_list.add_contact("Alice", "123456")
-        self.assertEqual(self.contact_list.get_contacts(), [{"id": 1, "name": "Alice", "phone": "123456"}])
+        self.assertEqual(self.contact_list.get_contacts(),
+                         [{"id": 1, "name": "Alice", "phone": "123456"}])
         self.mock_db.save.assert_called_once_with(contact)
         print("Test 'test_add_contact' passed.")
 
@@ -22,8 +23,12 @@ class TestContactList(unittest.TestCase):
 
     def test_update_contact(self):
         self.contact_list.add_contact("Alice", "123456")
-        updated_contact = self.contact_list.update_contact(1, name="Alicia", phone="654321")
-        self.assertEqual(updated_contact, {"id": 1, "name": "Alicia", "phone": "654321"})
+        updated_contact = self.contact_list.update_contact(1,
+                                                           name="Alicia",
+                                                           phone="654321")
+        self.assertEqual(updated_contact, {"id": 1,
+                                           "name": "Alicia",
+                                           "phone": "654321"})
         print("Test 'test_update_contact' passed.")
 
     def test_delete_contact(self):
